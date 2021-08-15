@@ -1,0 +1,220 @@
+<html>
+<head>
+    <title>Vidyalankar Unofficial Website</title>
+</head>
+
+<body onload="onStart()" style="background-image: linear-gradient(rgb(240, 41, 58) , rgb(255, 1, 255));" >
+
+
+  <style >
+    .login_credientials_table{
+
+    }
+    th{
+      padding: 20;
+      font-size: 30;
+    }
+    td{
+      padding: 15;
+      font-size: 25;
+      align-items: center;
+      align-self: center;
+
+    }
+    tr{
+      align-items: center;
+    }
+    .LastUsefullLinks{
+      align-items: center;
+      color: #007;
+
+    }
+    .change_pass_class:link{
+      color:#007;
+    }
+    .change_pass_class:hover {
+      color: white;
+    }
+
+  </style>
+
+
+
+    <div>
+          <table align="center" border="2" class="login_credientials_table">
+              <tr align="center">
+                <th colspan="2"> Login Credentials</th>
+              </tr>
+              <tr>
+                <td>
+                  <p align="center">Email</p>
+                </td>
+                <td>
+                  <p align="center" id="email_paragraph_id"></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p align="center">Password</p>
+                </td>
+                <td>
+                  <p align="center" id="password_paragraph_id"></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p align="center">Phone Number</p>
+                </td>
+                <td>
+                  <p align="center" id="phone_paragraph_id"></p>
+                </td>
+              </tr>
+          </table>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br>
+    <div class="LastUsefullLinks" align="center">
+
+      <b><i><u>
+        <a class="change_pass_class" href="javascript:changePassword()" >Change Password</a>
+
+
+      </u></i></b>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        function sendToPhysics(){
+            document.location.replace("physics.html");
+        }
+        function sendToHome(){
+            document.location.replace("home.html");
+        }
+        function sendToMaths(){
+            document.location.replace("maths.html");
+        }
+        function sendToGraphics(){
+            document.location.replace("graphics.html");
+        }
+        function sendToChemistry(){
+            document.location.replace("chemistry.html");
+        }
+        function sendToProgramming(){
+            document.location.replace("programming.html");
+        }
+        function sendToLoginPage(){
+            document.location.replace("index.html");
+        }
+        function putItem(key , value) {
+            sessionStorage.setItem(key, value);
+        }
+        function getItem(key) {
+           return sessionStorage.getItem(key);
+        }
+        function onStart() {
+
+            displayProperEmail();
+
+           ////////////////////////////////////////////
+           document.getElementById("email_paragraph_id").innerHTML  = getCookie("email");
+           document.getElementById("password_paragraph_id").innerHTML  = getCookie("password");
+           document.getElementById("phone_paragraph_id").innerHTML  = getCookie("phone");
+
+         }
+        function changePassword() {
+          let text;
+          let person = prompt("Enter Your New Password");
+          if (person == null || person == "") {
+            text = "User cancelled the prompt.";
+            alert("Failed To Update Password ");
+          } else {
+            //set text as password
+            document.location.replace("/forms/password_updation.php?email=satej.bhave@vit.edu.in&pass="+person);//getCookie("email")
+          }
+
+
+
+        }
+
+
+      //    if (pass == null || pass == "") {
+    //        var text = "User cancelled the prompt.";
+    //      } else {
+    //        var text = "Hello " ;
+      //    }
+
+
+
+      //     document.getElementsByName("emailLableForHome")[0].value = getItem("email");
+      //     document.getElementsByName("password_paragraph_name")[0].value = getCookie("password");// getItem("password");
+        //   document.getElementsByName("phone_paragraph_name")[0].value = getCookie("phone");//getItem("phone");
+
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) {
+                return  decodeURIComponent( c.substring(nameEQ.length,c.length))  ;}
+            }
+            return "na";
+        }
+
+        function displayProperEmail() {
+
+          //  document.getElementsByName("emailLableForHome")[0].value = getItem("email");
+        }
+
+
+
+
+
+
+
+
+
+          /*<table align="right" border="0" style=" text-align: end ;">
+              <th>
+                  <img style="text-align: end;" width="50" height="50" src="assets/profile_img.png">
+              </th>
+              <th style="height: 50;" align="center">
+                  <form >
+                      <input style="background-color: #0f0; padding-left: 20 ; font-size: 17 ; font-family: sans-serif; padding-right: 20; height: 40; transform: translateY(10px);" height="" name="emailLableForHome" type="button"  ></label>
+                  </form>
+              </th>
+
+          </table>*/
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+
+</html>
