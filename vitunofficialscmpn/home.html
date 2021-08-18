@@ -55,6 +55,37 @@
   }
 
   /*-------------------------------------------------------------------------*/
+  @keyframes disapp{
+    0%{
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    100%{
+      opacity: 0;
+    }
+
+  }
+  @-webkit-keyframes disapp{
+    0%{
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    100%{
+      opacity: 0;
+    }
+
+  }
+
 
   #toast_wrapper{
     border-width: 5px;
@@ -62,6 +93,13 @@
     left: 50% ;
     top: 75%;
     width: 400px;
+    animation-delay: 5s;
+    -webkit-animation-delay: 5s;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation: disapp 4s forwards;
+    visibility: hidden;
+    -webkit-animation: disapp 4s forwards;
     border-radius: 15px;
     box-shadow: 0 15px 30px rgba(#fff, #fff, #fff, 0.8);
     font-family: "Poppins" , sans-serif;
@@ -262,13 +300,30 @@
         }
         function onStart() {
             displayProperMessage();
-           putItem("videourl" , "na");
-           var x = getItem("videourl");
         }
 
         function displayProperMessage() {
-          var co = "na";
-        
+          var title = "Title";
+          var disc = "Discription";
+          var show = true;
+          if(!show){
+            var titEle = document.getElementById("container_1_Title");
+            titEle.innerHTML = title;
+            var disEle = document.getElementById("container_1_Discription");
+            disEle.innerHTML = disc;
+            var toast_wraperEle = document.getElementById("toast_wrapper");
+            toast_wraperEle.style.visibility = "hidden";
+          }else{
+            var titEle = document.getElementById("container_1_Title");
+            titEle.innerHTML = title;
+            var disEle = document.getElementById("container_1_Discription");
+            disEle.innerHTML = disc;
+            var toast_wraperEle = document.getElementById("toast_wrapper");
+            toast_wraperEle.style.visibility = "visible";
+
+          }
+          
+          
 
             
         }
